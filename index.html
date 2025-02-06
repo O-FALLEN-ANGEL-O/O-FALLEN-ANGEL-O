@@ -29,21 +29,35 @@
         }
 
         /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            z-index: 1000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease, top 0.3s ease;
+        }
+
+        /* Fungro Logo (aligned left) */
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* Navigation Menu (aligned right) */
         nav ul {
             display: flex;
-            justify-content: center;
-            background-color: #3a3a3a;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            transition: background-color 0.3s ease;
+            gap: 20px;
         }
 
         nav ul li {
             list-style: none;
-            margin: 0 25px;
         }
 
         nav ul li a {
@@ -79,7 +93,7 @@
         /* Header */
         header {
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
             background: linear-gradient(135deg, #FF6F61, #F5A623);
             color: #fff;
             animation: fadeIn 2s ease-in;
@@ -127,7 +141,7 @@
         /* Program List */
         ul {
             list-style: none;
-            margin-top: 30px;
+            margin-top: 20px;
             padding: 0;
             display: flex;
             flex-wrap: wrap;
@@ -249,11 +263,12 @@
         @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
-                padding: 20px;
+                align-items: center;
+                margin-top: 20px;
             }
 
             nav ul li {
-                margin-bottom: 10px;
+                margin: 10px 0;
             }
 
             section {
@@ -321,6 +336,7 @@
 <body>
     <header>
         <nav>
+            <div class="logo">Fungro</div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#company">Company</a></li>
@@ -377,5 +393,24 @@
     <footer>
         <p>&copy; 2025 Fungro. All rights reserved.</p>
     </footer>
+
+    <script>
+        let lastScrollTop = 0; // Keeps track of last scroll position
+        const nav = document.querySelector('nav'); // Get the nav element
+
+        window.addEventListener('scroll', function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (currentScroll > lastScrollTop) {
+                // Scrolling down
+                nav.style.top = '-80px'; // Hide the navbar
+            } else {
+                // Scrolling up
+                nav.style.top = '0'; // Show the navbar
+            }
+
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll values
+        });
+    </script>
 </body>
 </html>
