@@ -90,6 +90,23 @@
             transform-origin: bottom left;
         }
 
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            background-color: #fff;
+            height: 4px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
         /* Header */
         header {
             text-align: center;
@@ -265,10 +282,26 @@
                 flex-direction: column;
                 align-items: center;
                 margin-top: 20px;
+                display: none;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px 0;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.show {
+                display: flex;
             }
 
             nav ul li {
                 margin: 10px 0;
+            }
+
+            .hamburger {
+                display: flex;
             }
 
             section {
@@ -337,11 +370,17 @@
     <header>
         <nav>
             <div class="logo">Fungro</div>
-            <ul>
+            <ul id="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#company">Company</a></li>
                 <li><a href="#teen">Teen</a></li>
             </ul>
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </nav>
         <h1>Welcome to Fungro</h1>
         <p>Empowering Teens through Innovation & Creativity</p>
@@ -369,6 +408,7 @@
         </ul>
     </section>
 
+    <!-- Comments Section -->
     <div id="comments-section">
         <h2>Comments</h2>
 
@@ -411,6 +451,12 @@
 
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Prevent negative scroll values
         });
+
+        // Toggle the navigation menu for mobile
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
     </script>
 </body>
 </html>
