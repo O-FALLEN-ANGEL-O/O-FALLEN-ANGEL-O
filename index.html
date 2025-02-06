@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fungro - Empowering teens through innovation and creativity.">
+    <meta name="keywords" content="Fungro, innovation, creativity, company, empowerment, teen programs">
+    <meta name="author" content="Fungro Team">
+    <title>Fungro Official Website</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav ul {
+            display: flex;
+            justify-content: center;
+            background-color: #3a3a3a;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            font-weight: 600;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: #FF6F61;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #FF6F61;
+            bottom: -5px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #FF6F61, #F5A623);
+            color: #fff;
+            animation: fadeIn 2s ease-in;
+        }
+
+        header h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        header p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 2s ease-out 0.5s forwards;
+        }
+
+        /* Main Section */
+        section {
+            padding: 80px 50px;
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+
+        section h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1.5s forwards;
+        }
+
+        section p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 2s ease-out 0.5s forwards;
+        }
+
+        /* Program List */
+        ul {
+            list-style: none;
+            margin-top: 30px;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        ul li {
+            font-size: 18px;
+            margin: 15px 30px;
+            color: #333;
+            font-weight: 500;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 2s ease-out 1s forwards;
+        }
+
+        /* Hover Effects on List Items */
+        ul li:hover {
+            color: #FF6F61;
+            transform: translateY(-5px);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: -20px;
+            top: 0;
+            font-size: 24px;
+            color: #FF6F61;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: slideIn 1.5s ease-out 1.5s forwards;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #3a3a3a;
+            color: #fff;
+            border-top: 2px solid #FF6F61;
+            animation: fadeIn 2s ease-out;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+
+        /* Comment Section */
+        #comments-section {
+            background-color: #fff;
+            padding: 50px;
+            margin-top: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            animation: fadeInUp 2s ease-out;
+        }
+
+        #comments-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .comment {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .comment p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .comment .author {
+            font-weight: bold;
+            color: #FF6F61;
+            font-size: 14px;
+        }
+
+        /* Comment Form */
+        #comment-form {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #comment-form input,
+        #comment-form textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        #comment-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #FF6F61;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #comment-form button:hover {
+            background-color: #e65c54;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul li {
+                margin-bottom: 10px;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            section p {
+                font-size: 16px;
+            }
+
+            #comment-form input,
+            #comment-form textarea {
+                width: 100%;
+            }
+        }
+
+        /* Keyframes for Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#company">Company</a></li>
+                <li><a href="#teen">Teen</a></li>
+            </ul>
+        </nav>
+        <h1>Welcome to Fungro</h1>
+        <p>Empowering Teens through Innovation & Creativity</p>
+    </header>
+
+    <section id="company">
+        <h2>Our Company</h2>
+        <p>Fungro is a company focused on empowering teens through innovation, creativity, and leadership. Our mission is to create opportunities for young individuals to learn, grow, and contribute to society with their creative skills.</p>
+        <h2>Our Services</h2>
+        <ul>
+            <li>Creative Workshops</li>
+            <li>Teen Leadership Programs</li>
+            <li>Collaborative Projects with Schools</li>
+        </ul>
+    </section>
+
+    <section id="teen">
+        <h2>Opportunities for Teens</h2>
+        <p>At Fungro, we offer teens the chance to explore creative fields, develop leadership skills, and participate in hands-on projects. Our programs are designed to give you the tools and support needed to succeed.</p>
+        <h2>Our Programs</h2>
+        <ul>
+            <li>Creative Writing Workshops</li>
+            <li>Art & Design Challenges</li>
+            <li>Community Engagement Projects</li>
+        </ul>
+    </section>
+
+    <div id="comments-section">
+        <h2>Comments</h2>
+
+        <div class="comment">
+            <p>"Fungro has inspired me to explore my creativity and take action in my community!"</p>
+            <p class="author">- Jane Doe</p>
+        </div>
+
+        <div class="comment">
+            <p>"The leadership programs are so helpful! I feel ready to take on any challenge."</p>
+            <p class="author">- John Smith</p>
+        </div>
+
+        <!-- Comment Form -->
+        <div id="comment-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <textarea id="comment" placeholder="Write your comment here..." required></textarea>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Fungro. All rights reserved.</p>
+    </footer>
+</body>
+</html>
